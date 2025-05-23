@@ -58,10 +58,13 @@ if attackType == "1":
     port = input("Enter port number: ")
 
     if checkForTarget(ip, port) == True:
-        print("Host Connected")
-        attackTCP(ip, port)
+        print("Host is up")
+        try:
+            attackTCP(ip, port)
+        except:
+            print("Error, port might not be open")
     else:
-        print("Host connection failed")
+        print("Host seems down")
 
 elif attackType == "2":
     ip = input("Enter Host Address: ")
